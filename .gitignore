@@ -1,2 +1,17 @@
 test_folder/test_img_yinni
 test_folder/kesong
+
+# Python virtual environment
+interaction_annotation/
+
+# IDE specific files
+.idea/
+.vscode/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS-specific files
+.DS_Store
