@@ -1,0 +1,90 @@
+{
+    "ds_01": {
+        "A01.png": {
+            "interaction_type": "click",
+            "interaction_parameters": {
+                "grounding": [
+                    0.5080527086383602,
+                    0.149898717083052
+                ]
+            }
+        },
+        "A02.png": {
+            "interaction_type": "click",
+            "interaction_parameters": {
+                "grounding": [
+                    0.8067349926793558,
+                    0.5631330182309251
+                ]
+            }
+        },
+        "A03.png": {
+            "interaction_type": "multiclick",
+            "interaction_parameters": {
+                "grounding": [
+                    0.37774524158125916,
+                    0.3085752869682647
+                ],
+                "clicks": 3
+            }
+        },
+        "A04.png": {
+            "interaction_type": "longpress",
+            "interaction_parameters": {
+                "grounding": [
+                    0.6281112737920937,
+                    0.23835246455097908
+                ],
+                "duration": 1000
+            }
+        },
+        "A05.png": {
+            "interaction_type": "longpress",
+            "interaction_parameters": {
+                "grounding": [
+                    0.9226277372262773,
+                    0.29121621621621624
+                ],
+                "duration": 4000
+            }
+        },
+        "A06.png": {
+            "interaction_type": "click",
+            "interaction_parameters": {
+                "grounding": [
+                    0.8058394160583942,
+                    0.9087837837837838
+                ]
+            }
+        },
+        "A07.png": {
+            "interaction_type": "click",
+            "interaction_parameters": {
+                "grounding": [
+                    0.6500732064421669,
+                    0.9351351351351351
+                ]
+            }
+        }
+    },
+    "ds_02": {
+        "B01.png": {
+            "interaction_type": "click",
+            "interaction_parameters": {
+                "grounding": [
+                    0.568081991215227,
+                    0.14179608372721134
+                ]
+            }
+        },
+        "B02.png": {
+            "interaction_type": "click",
+            "interaction_parameters": {
+                "grounding": [
+                    0.8535871156661786,
+                    0.5692099932478055
+                ]
+            }
+        }
+    }
+}
