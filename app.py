@@ -181,7 +181,7 @@ def process_folder(folder_name):
         test_id = os.path.basename(subfolder)
         imgs_folder = os.path.join(subfolder, "imgs")
         if os.path.isdir(imgs_folder):
-            images = sorted([os.path.join(imgs_folder, img) for img in os.listdir(imgs_folder)])
+            images = sorted([os.path.join(imgs_folder, img) for img in os.listdir(imgs_folder) if not img.startswith('.')])
             if images:
                 image_groups[test_id] = images
 
