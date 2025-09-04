@@ -86,5 +86,159 @@
                 ]
             }
         }
+    },
+    "ds_03": {
+        "C01.png": {
+            "interaction_type": "click",
+            "interaction_parameters": {
+                "grounding": [
+                    0.4862681744749596,
+                    0.6480238627889635
+                ]
+            }
+        },
+        "C02.png": {
+            "interaction_type": "slide",
+            "interaction_parameters": {
+                "grounding": [
+                    [
+                        0.6978998384491115,
+                        0.6838180462341537
+                    ],
+                    [
+                        0.7253634894991923,
+                        0.5242356450410142
+                    ]
+                ],
+                "duration": 1000
+            }
+        },
+        "C03.png": {
+            "interaction_type": "click",
+            "interaction_parameters": {
+                "grounding": [
+                    0.5638126009693053,
+                    0.9410887397464579
+                ]
+            }
+        },
+        "C04.png": {
+            "interaction_type": "click",
+            "interaction_parameters": {
+                "grounding": [
+                    0.46849757673667203,
+                    0.4369873228933632
+                ]
+            }
+        },
+        "C05.png": {
+            "interaction_type": "slide",
+            "interaction_parameters": {
+                "grounding": [
+                    [
+                        0.6284329563812601,
+                        0.8008948545861297
+                    ],
+                    [
+                        0.6252019386106623,
+                        0.615958240119314
+                    ]
+                ],
+                "duration": 1000
+            }
+        },
+        "C06.png": {
+            "interaction_type": "click",
+            "interaction_parameters": {
+                "grounding": [
+                    0.7948303715670436,
+                    0.686055182699478
+                ]
+            }
+        },
+        "C07.png": {
+            "interaction_type": "click",
+            "interaction_parameters": {
+                "grounding": [
+                    0.7027463651050081,
+                    0.9157345264727815
+                ]
+            }
+        },
+        "C08.png": {
+            "interaction_type": "click",
+            "interaction_parameters": {
+                "grounding": [
+                    0.938610662358643,
+                    0.2348993288590604
+                ]
+            }
+        },
+        "C09.png": {
+            "interaction_type": "slide",
+            "interaction_parameters": {
+                "grounding": [
+                    [
+                        0.4862681744749596,
+                        0.7158836689038032
+                    ],
+                    [
+                        0.49596122778675283,
+                        0.5898583146905294
+                    ]
+                ],
+                "duration": 1000
+            }
+        },
+        "C10.png": {
+            "interaction_type": "slide",
+            "interaction_parameters": {
+                "grounding": [
+                    [
+                        0.6575121163166397,
+                        0.6517524235645041
+                    ],
+                    [
+                        0.6752827140549273,
+                        0.5033557046979866
+                    ]
+                ],
+                "duration": 1000
+            }
+        },
+        "C11.png": {
+            "interaction_type": "click",
+            "interaction_parameters": {
+                "grounding": [
+                    0.8174474959612278,
+                    0.5458612975391499
+                ]
+            }
+        },
+        "C12.png": {
+            "interaction_type": "slide",
+            "interaction_parameters": {
+                "grounding": [
+                    [
+                        0.7399030694668821,
+                        0.8090976882923192
+                    ],
+                    [
+                        0.7673667205169629,
+                        0.6413124533929903
+                    ]
+                ],
+                "duration": 1000
+            }
+        },
+        "C13.png": {
+            "interaction_type": "click",
+            "interaction_parameters": {
+                "grounding": [
+                    0.7948303715670436,
+                    0.9202087994034303
+                ]
+            }
+        }
     }
 }
