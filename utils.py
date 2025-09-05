@@ -8,7 +8,7 @@ def get_test_folders(base_dir="test_folder"):
         return []
     return [f.name for f in os.scandir(base_dir) if f.is_dir()]
 
-def draw_point_on_image(image_path, normalized_coords, color="red", interaction_type="click"):
+def draw_point_on_image(image_path, normalized_coords, color="red", interaction_type="click", trajectory_points=None):
     with Image.open(image_path) as base_img:
         base_img = base_img.convert("RGBA")
 
@@ -26,6 +26,23 @@ def draw_point_on_image(image_path, normalized_coords, color="red", interaction_
             rgb_color = ImageColor.getrgb(color)
         except ValueError:
             rgb_color = (255, 0, 0) # Default to red
+
+        # Draw trajectory path FIRST
+        if trajectory_points and len(trajectory_points) > 1:
+            pixel_points = [(p[0] * width, p[1] * height) for p in trajectory_points]
+            
+            num_segments = len(pixel_points) - 1
+            for i in range(num_segments):
+                start_seg = pixel_points[i]
+                end_seg = pixel_points[i+1]
+                
+                # Gradient opacity from 0 to 1
+                alpha = int(255 * ((i + 1) / num_segments))
+                
+                # Red color for trajectory
+                line_color = (255, 0, 0, alpha)
+                
+                draw.line([start_seg, end_seg], fill=line_color, width=5)
 
         coords_to_draw = []
         if normalized_coords:
@@ -87,7 +104,7 @@ def draw_point_on_image(image_path, normalized_coords, color="red", interaction_
         
         return combined.convert("RGB")
 
-def get_image_for_display(image_path, test_id, interactions):
+def get_image_for_display(image_path, test_id, interactions, draw_trajectory=False):
     img_id = os.path.basename(image_path)
     if test_id in interactions and img_id in interactions[test_id]:
         interaction_data = interactions[test_id][img_id]
@@ -103,7 +120,44 @@ def get_image_for_display(image_path, test_id, interactions):
                 color = "blue"
             elif interaction_type == 'slide':
                 color = "green"
-            return draw_point_on_image(image_path, coords, color, interaction_type=interaction_type)
+
+            trajectory_points = []
+            if draw_trajectory:
+                # --- Trajectory logic ---
+                sorted_img_ids = sorted(interactions[test_id].keys())
+                
+                if test_id in interactions:
+                    up_to_index = sorted_img_ids.index(img_id)
+
+                    # Collect all "knot" points from previous interactions
+                    for i in range(up_to_index):
+                        img_id_for_traj = sorted_img_ids[i]
+                        interaction = interactions[test_id].get(img_id_for_traj, {})
+                        params = interaction.get("interaction_parameters", {})
+                        grounding = params.get("grounding")
+                        
+                        if not grounding:
+                            continue
+
+                        if interaction.get("interaction_type") == "slide" and len(grounding) == 2:
+                            if not trajectory_points or trajectory_points[-1] != grounding[0]:
+                                trajectory_points.append(grounding[0])
+                            trajectory_points.append(grounding[1])
+                        else:
+                            point = grounding[0] if isinstance(grounding[0], list) else grounding
+                            if isinstance(point, list) and len(point) == 2:
+                                trajectory_points.append(point)
+
+                    # Now, connect to the current interaction's start point
+                    current_interaction = interactions[test_id][img_id]
+                    current_grounding = current_interaction.get("interaction_parameters", {}).get("grounding")
+                    if current_grounding:
+                        start_point_current = current_grounding[0] if isinstance(current_grounding[0], list) else current_grounding
+                        if isinstance(start_point_current, list) and len(start_point_current) == 2:
+                            if not trajectory_points or trajectory_points[-1] != start_point_current:
+                                trajectory_points.append(start_point_current)
+
+            return draw_point_on_image(image_path, coords, color, interaction_type=interaction_type, trajectory_points=trajectory_points)
     return Image.open(image_path)
 
 def update_and_get_interactions(interactions, test_id, index, image_groups, tool_type, clicks, duration, slide_duration):
