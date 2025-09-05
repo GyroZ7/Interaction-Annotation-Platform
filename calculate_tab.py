@@ -114,7 +114,7 @@ Std Dev: {std_dist:.2f}"""
         stats_score += f"平均得分: {average_operation_quality_score:.2%}"
     
     if operation_quality_score is not None or average_operation_quality_score is not None:
-        stats_score += """<br><br><b>得分释义:</b><br>
+        stats_score += """<br><b>得分释义:</b><br>
 该分数衡量当前操作对交互路径的影响。<br>
 <span style='color:green;'>正分 (越高越好):</span> 高效交互, 缩短了路径。<br>
 <span style='color:red;'>负分 (越低越差):</span> 低效交互, 拉长了路径。"""
